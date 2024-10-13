@@ -19,3 +19,22 @@ document.getElementById('fetchButton').addEventListener('click', async () => {
         responseContainer.innerHTML = `<p>Error fetching the URL: ${error.message}</p>`;
     }
 });
+
+// Modal functionality
+const linkModal = document.getElementById('linkModal');
+const linkIcon = document.getElementById('link-icon');
+const closeModal = document.getElementById('closeModal');
+
+linkIcon.addEventListener('click', () => {
+    linkModal.style.display = "block";
+});
+
+closeModal.addEventListener('click', () => {
+    linkModal.style.display = "none";
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == linkModal) {
+        linkModal.style.display = "none";
+    }
+});
