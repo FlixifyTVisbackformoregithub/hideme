@@ -1,8 +1,18 @@
-document.getElementById('proxy-form').onsubmit = function(event) {
+// Assuming you have a form with the id 'proxy-form'
+document.getElementById('proxy-form').onsubmit = async function(event) {
     event.preventDefault(); // Prevent the default form submission
     const url = document.getElementById('url').value;
 
-    // Placeholder function: this should send the URL to your proxy server
-    // Currently, it just shows the entered URL
-    document.getElementById('output').innerHTML = `<p>You entered: <a href="${url}" target="_blank">${url}</a></p>`;
+    try {
+        const response = await fetch(`http://localhost:3000/proxy?url=${encodeURIComponent(url)}`);
+        if (response.ok) {
+            const data = await response.text();
+            document.getElementById('output').innerHTML = `<div>${data}</div>`;
+        } else {
+            document.getElementById('output').innerHTML = `<p>Error fetching the URL.</p>`;
+        }
+    } catch (error) {
+        console.error(error);
+        document.getElementById('output').innerHTML = `<p>An error occurred.</p>`;
+    }
 };
