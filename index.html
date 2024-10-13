@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Proxy</title>
+    <title>Tinfoil Style Web Proxy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="navbar">
         <div class="nav-item">Home</div>
-        <div class="nav-item">Game</div>
-        <div class="nav-item">Proxy</div>
+        <div class="nav-item">Games</div>
+        <div class="nav-item active">Proxy</div>
         <div class="nav-item">Settings</div>
-        <div class="nav-icon" id="link-icon">&#8594;</div>
+        <div class="nav-icon" id="link-icon">&#128279;</div>
     </div>
 
     <div class="container">
-        <h1>Simple Web Proxy</h1>
-        <input type="text" id="urlInput" placeholder="Enter URL here...">
-        <button id="fetchButton">Fetch</button>
+        <h1>Web Proxy</h1>
+        <div class="input-container">
+            <input type="text" id="urlInput" placeholder="Enter URL here...">
+            <button id="fetchButton">Fetch</button>
+        </div>
         <div id="response" class="response"></div>
     </div>
 
     <div class="modal" id="linkModal">
         <div class="modal-content">
             <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Links</h2>
+            <h2>Useful Links</h2>
             <ul>
                 <li><a href="https://example1.com" target="_blank">Example 1</a></li>
                 <li><a href="https://example2.com" target="_blank">Example 2</a></li>
@@ -42,7 +44,7 @@
         <div class="tab-item">Tab 3</div>
         <div class="tab-item">Tab 4</div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
