@@ -14,12 +14,43 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.nav-item {
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav-icon {
+    background-color: limegreen;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Adjust height for navbar */
+    margin-top: 60px; /* Space for navbar */
 }
 
 h1 {
@@ -56,4 +87,94 @@ button:hover {
     padding: 20px;
     overflow: auto;
     max-height: 300px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.tab-item {
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.tab-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    height: 80%;
+    color: black;
+    animation: modal-animation 0.5s;
+}
+
+@keyframes modal-animation {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(0);}
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: red; 
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+}
+
+ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: limegreen; 
+}
+
+.glow {
+    color: limegreen;
+    text-shadow: 0 0 10px limegreen;
+}
+
+.glow:hover {
+    text-shadow: 0 0 20px red;
 }
