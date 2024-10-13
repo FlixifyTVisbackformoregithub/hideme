@@ -1,47 +1,52 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #4a90e2, #50e3c2);
-    background-size: 300% 300%;
-    animation: gradient 5s ease infinite;
-    color: white;
+* {
+    box-sizing: border-box;
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
-    top: 0;
-    padding: 10px 0;
     z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .nav-item {
     cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
+    padding: 10px 20px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.nav-item.active {
+    border-bottom: 2px solid limegreen;
 }
 
 .nav-icon {
-    background-color: limegreen;
-    border-radius: 50%;
-    padding: 10px;
     cursor: pointer;
+    font-size: 20px;
     transition: transform 0.3s;
 }
 
 .nav-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .container {
@@ -49,33 +54,49 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 60px); /* Adjust height for navbar */
-    margin-top: 60px; /* Space for navbar */
+    margin-top: 60px;
+    padding: 20px;
+    height: calc(100vh - 60px);
 }
 
 h1 {
     margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
 }
 
 input[type="text"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 300px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    transition: background 0.3s;
+}
+
+input[type="text"]:focus {
+    background: rgba(0, 0, 0, 0.8);
+    outline: none;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 15px 20px;
     border: none;
     border-radius: 5px;
     background-color: #50e3c2;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #4a90e2;
+    transform: scale(1.05);
 }
 
 .response {
@@ -89,26 +110,6 @@ button:hover {
     max-height: 300px;
 }
 
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.tab-item {
-    cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.3s;
-}
-
-.tab-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 .modal {
     display: none; 
     position: fixed; 
@@ -117,64 +118,74 @@ button:hover {
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
+    background-color: #fff;
+    margin: 10% auto; 
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
-    height: 80%;
+    border-radius: 10px;
+    width: 40%; 
+    height: 60%;
     color: black;
     animation: modal-animation 0.5s;
+    position: relative;
 }
 
 @keyframes modal-animation {
-    from {transform: translateY(-100%);}
+    from {transform: translateY(-30%);}
     to {transform: translateY(0);}
 }
 
 .close-btn {
-    color: #aaa;
-    float: right;
+    position: absolute;
+    top: 15px;
+    right: 20px;
     font-size: 28px;
-    font-weight: bold;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: red; 
-    text-decoration: none;
+    color: #333;
     cursor: pointer;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 ul li {
-    padding: 10px;
+    padding: 10px 0;
 }
 
 ul li a {
-    color: #333;
+    color: #0072ff;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 ul li a:hover {
     color: limegreen; 
+    text-decoration: underline;
 }
 
-.glow {
-    color: limegreen;
-    text-shadow: 0 0 10px limegreen;
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.glow:hover {
-    text-shadow: 0 0 20px red;
+.tab-item {
+    cursor: pointer;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.tab-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
