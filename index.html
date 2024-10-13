@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Inspired Web Proxy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nano Proxy</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#search">Search</a></li>
+                    <li><a href="#games">Games</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section id="home">
+                <h2>Welcome to the Nano Proxy</h2>
+                <p>Use this tool to anonymously browse the web. Enjoy games and more!</p>
+            </section>
+            
+            <section id="search">
+                <h2>Search the Web</h2>
+                <form id="proxy-form" action="" method="get">
+                    <input type="text" id="url" placeholder="Enter a URL" required>
+                    <button type="submit">Go</button>
+                </form>
+                <div id="output"></div>
+            </section>
+            
+            <section id="games">
+                <h2>Games</h2>
+                <p>Coming Soon!</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Nano Proxy. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
